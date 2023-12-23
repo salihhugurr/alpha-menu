@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500;600;700&family=Lobster&family=Lobster+Two&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import 'reset-css';
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 2lg, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 255, 255, 255;
+    --background-end-rgb: 255, 255, 255;
+  }
+}
+
+
+@layer base {
+  body {
+      font-family: "Lobster Two", "sans-serif";
+  }
+  p {
+    font-family: "Cormorant Upright", "serif";
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+.section__padding {
+  padding: 4rem 6rem;
+}
+
+.flex__center {
+  @apply flex justify-center items-center;
+}
+
+.app__bg {
+  @apply bg-cover bg-center bg-repeat bg-fixed;
+}
+
+.app__wrapper {
+  @apply flex justify-between items-center min-h-screen;
+}
+
+.app__wrapper_info {
+  @apply flex-1 w-full flex justify-center items-start flex-col;
+}
+
+.app__wrapper_img {
+  @apply flex-1 w-full flex justify-center items-center ml-2;
+}
+
+.app__wrapper_img-reverse {
+  @apply flex justify-start mr-2 mb-6;
+}
+
+.app__wrapper_img img {
+  @apply w-80;
+}
+
+
+.p__cormorant {
+  @apply font-base text-black font-semibold tracking-wider capitalize lining-nums leading-6 text-2xl;
+}
+
+.p__opensans {
+  @apply text-white font-normal tracking-wider leading-7 text-base;
+}
+
+.headtext__cormorant {
+  @apply font-base text-secondary text-6xl leading-10 tracking-wider capitalize;
+}
+
+.spoon__img {
+  @apply w-11;
+}
+
+@media screen and (min-width: 2000px) {
+  .custom__button,
+  .p__cormorant {
+    @apply text-3xl leading-10;
+  }
+
+  .p__opensans {
+    @apply text-3xl leading-10;
+  }
+
+  .headtext__cormorant {
+    @apply text-6xl leading-10;
+  }
+
+  .spoon__img {
+    @apply w-20;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .app__wrapper {
+    @apply flex-col;
+  }
+
+  .app__wrapper_img {
+    @apply mt-5;
+  }
+
+  .app__wrapper_img-reverse {
+    @apply mt-0 mb-5;
+  }
+
+  .app__wrapper_img img {
+    @apply w-full;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .section__padding {
+    @apply p-4;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .section__padding {
+    @apply p-4 md:p-2;
+  }
+
+  .p__cormorant {
+    @apply text-xl;
+  }
+
+  .p__opensans {
+    @apply text-base;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .p__opensans {
+    @apply text-sm;
+  }
+
+  .p__cormorant {
+    @apply text-lg;
+  }
+
+  .headtext__cormorant {
+    @apply text-5xl leading-10;
+  }
+}
+
