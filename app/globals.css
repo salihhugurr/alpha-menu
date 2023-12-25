@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500;600;700&family=Lobster&family=Lobster+Two&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import 'reset-css';
+@import "reset-css";
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 2lg, 220;
@@ -17,13 +17,12 @@
   }
 }
 
-
 @layer base {
   body {
-      font-family: "Lobster Two", "sans-serif";
+    font-family: "Montserrat Alternates", "sans-serif";
   }
   p {
-    font-family: "Cormorant Upright", "serif";
+    font-family: "Montserrat", "sans-serif";
   }
 }
 
@@ -68,7 +67,6 @@ body {
 .app__wrapper_img img {
   @apply w-80;
 }
-
 
 .p__cormorant {
   @apply font-base text-black font-semibold tracking-wider capitalize lining-nums leading-6 text-2xl;
@@ -156,4 +154,3 @@ body {
     @apply text-5xl leading-10;
   }
 }
-
