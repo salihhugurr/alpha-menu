@@ -10,36 +10,39 @@ export const client = sanityClient({
 });
 
 export async function getHotBar() {
-  const posts = await client.fetch('*[_type == "hotbar"]');
-  return posts;
+  const hotbar = await client.fetch('*[_type == "hotbar"]');
+  return hotbar;
 }
 
 export async function getColdBar() {
-  const posts = await client.fetch('*[_type == "coldbar"]');
-  return posts;
+  const coldbar = await client.fetch('*[_type == "coldbar"]');
+  return coldbar;
 }
 
 export async function getExtras() {
-  const posts = await client.fetch('*[_type == "extra"]');
-  return posts;
+  const extra = await client.fetch('*[_type == "extra"]');
+  return extra;
 }
 
 export async function getHealtyBar() {
-  const posts = await client.fetch('*[_type == "healtyBar"]');
-  return posts;
-}
-
-export async function getPosts() {
-  const posts = await client.fetch('*[_type == "post"]');
-  return posts;
+  const healtyBar = await client.fetch('*[_type == "healtyBar"]');
+  return healtyBar;
 }
 
 export async function getHerbalBar() {
-  const snacks = await client.fetch('*[_type == "herbalBar"]');
-  return snacks;
+  const herbalBar = await client.fetch('*[_type == "herbalBar"]');
+  return herbalBar;
 }
 
+export async function getSoftBar() {
+  const softbar = await client.fetch('*[_type == "softbar"]');
+  return softbar;
+}
 
+export async function getCakes() {
+  const cakes = await client.fetch('*[_type == "cakes"]');
+  return cakes;
+}
 
 const builder = imageUrlBuilder(client);
 

@@ -1,12 +1,15 @@
-"use client"
+"use client";
 import React, { useEffect, useState } from "react";
-import {BottomTabBar, MenuItem,SubHeading} from "../components";
+import { BottomTabBar, MenuItem, SubHeading } from "../components";
 import {
   getHotBar,
   getExtras,
   getColdBar,
   getHealtyBar,
   getHerbalBar,
+  getCakes,
+  urlFor,
+  getSoftBar,
 } from "../client";
 import Image from "next/image";
 
@@ -16,8 +19,10 @@ const Menu = () => {
   const [coldBar, setColdBar] = useState([]);
   const [herbalBar, setHerbalBar] = useState([]);
   const [healtyBar, setHealtyBar] = useState([]);
-  const [open,setOpen] = useState(false);
-  const [item,setItem] = useState();
+  const [softBar, setSoftBar] = useState([]);
+  const [cakes, setCakes] = useState([]);
+  const [open, setOpen] = useState(false);
+  const [item, setItem] = useState();
 
   const getData = async () => {
     let hotbar = await getHotBar();
@@ -35,6 +40,12 @@ const Menu = () => {
     let herbalBar = await getHerbalBar();
     const sortedHerbalBar = herbalBar.sort((a, b) => a.order - b.order);
     setHerbalBar(sortedHerbalBar);
+    let cakes = await getCakes();
+    const sortedCakes = cakes.sort((a, b) => a.order - b.order);
+    setCakes(sortedCakes);
+    let softBar = await getSoftBar();
+    const sortedSoftBar = softBar.sort((a, b) => a.order - b.order);
+    setSoftBar(sortedSoftBar);
   };
 
   useEffect(() => {
@@ -172,6 +183,7 @@ const Menu = () => {
             ))}
           </div>
         </div>
+
         <div
           id="herbalbar"
           className="flex flex-col text-center"
@@ -195,6 +207,43 @@ const Menu = () => {
           </div>
         </div>
 
+        <div id="cakes" className="flex flex-col text-center mb-20">
+          <p className="text-black font-alt font-extrabold text-3xl mb-8">
+            CAKES
+          </p>
+          <div className="flex flex-col gap-4">
+            {cakes.map((item, index) => (
+              <MenuItem
+                key={item.title + index}
+                title={item.title}
+                img={urlFor(item.image)}
+                price={item.price}
+              />
+            ))}
+          </div>
+        </div>
+        <div
+          id="softbar"
+          className="flex flex-col text-center mb-20"
+          style={{
+            background: `url(/soft.png)`,
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+          }}
+        >
+          <p className="text-black font-alt font-extrabold text-3xl mb-8">
+            SOFT BAR
+          </p>
+          <div className="flex flex-col gap-4">
+            {softBar.map((item, index) => (
+              <MenuItem
+                key={item.title + index}
+                title={item.title}
+                price={item.price}
+              />
+            ))}
+          </div>
+        </div>
         <div
           id="extras"
           className="flex flex-col text-center mb-20"
