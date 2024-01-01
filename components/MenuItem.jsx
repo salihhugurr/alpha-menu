@@ -27,7 +27,7 @@ const MenuItem = ({ title, price, tags, img, extras, onClick }) => {
           <div className="flex justify-center items-center">
             <div className="mr-8 w-8 h-[1px] bg-secondary m-0 1rem" />
             <div className="flex justify-end items-end">
-              <p className="w-12 md:w-12 text-base md:text-[16px] font-base font-black text-[18px] text-secondary">
+              <p className="w-14 md:w-12 text-[17px] md:text-[20px] font-base font-black text-secondary">
                 {price} ₺
               </p>
             </div>
@@ -36,7 +36,7 @@ const MenuItem = ({ title, price, tags, img, extras, onClick }) => {
         {extras?.map((item, index) => (
           <div
             key={index}
-            className="flex justify-between text-left text-sm font-alt font-black gap-2 mt-2"
+            className="flex justify-between text-left text-sm font-alt font-black gap-4 mt-4"
           >
             <h4 className="flex gap-4 text-[12px] md:text-[16px]">
               {item.title}
@@ -47,14 +47,7 @@ const MenuItem = ({ title, price, tags, img, extras, onClick }) => {
                 Hikayesi
               </button>
             </h4>
-            <div className="flex justify-center items-center">
-              <div className="mr-8 w-4 h-[.5px] bg-secondary m-0 1rem" />
-              <div className="flex justify-end items-end">
-                <p className="w-12 md:w-14 text-sm md:text-base font-base font-regular text-secondary">
-                  + {item.price} ₺
-                </p>
-              </div>
-            </div>
+            
           </div>
         ))}
       </div>
