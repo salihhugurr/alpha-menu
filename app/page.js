@@ -207,7 +207,7 @@ const Menu = () => {
           </div>
         </div>
 
-        <div id="cakes" className="flex flex-col text-center mb-20">
+        <div id="cakes" className="flex md:hidden flex-col text-center mb-20">
           <p className="text-black font-alt font-extrabold text-3xl mb-8">
             CAKES
           </p>
@@ -261,6 +261,21 @@ const Menu = () => {
               <MenuItem
                 key={item.title + index}
                 title={item.title}
+                price={item.price}
+              />
+            ))}
+          </div>
+        </div>
+        <div id="cakes" className="md:flex hidden flex-col text-center mb-20">
+          <p className="text-black font-alt font-extrabold text-3xl mb-8">
+            CAKES
+          </p>
+          <div className="flex flex-col gap-4">
+            {cakes.map((item, index) => (
+              <MenuItem
+                key={item.title + index}
+                title={item.title}
+                img={urlFor(item.image)}
                 price={item.price}
               />
             ))}
